@@ -1,0 +1,34 @@
+At provisioning time we associate a "tag" to a vm  and store it in a nosql table or json metadata file, The idea is to keep the tag updated during the lifecycle of the vm. Using this tag we can always find out what assets are associated with a particular vm.
+To automate the decommission, we can create a bunch of scripts with each designated to release a particular asset ( like storage, monitor, ip etc) & call these using chain of jenkins jobs.
+
+An arbitrary tag might look like this,
+{
+ "tag" :{
+    "askjdsdy2378" : {
+	  "hostname"   : "xyz",
+      "ip_address" :{
+        "recordtype": "A",
+	    "ip"        : "10.1.1.2",	
+	    "recordtype": "A",
+	    "ip"        : "10.1.1.3",	
+	    "recordtype": "c",
+	    "hostname"  : "xyz.com",
+	    "ip"        : "10.1.1.2",	
+      },
+      "storage":{
+         "provider" : {
+	     "type"     : "nfs",
+	     "endpoint" : "server1:/dev/mapper/somedevice",
+	     "type"     :  "cdn",
+	     "endpoint" : "http://some_end_point.org/asjhgheyfnas/001" ,
+	   },
+	  } ,
+	  "monitor": {
+	     "provider" : "nagios",
+	     "asset_url": "http://some_url/.../xyz",
+	  },
+      "decom_status": "no",	  
+    },
+ }
+}
+
