@@ -1,5 +1,7 @@
-At provisioning time we associate a "tag" to a vm  and store it in a nosql table or json metadata file, The idea is to keep the tag updated during the lifecycle of the vm. Using this tag we can always find out what assets are associated with a particular vm.
-To automate the decommission, we can create a bunch of scripts with each designated to release a particular asset ( like storage, monitor, ip etc) & call these using chain of jenkins jobs.
+At provisioning time we associate a "tag" to a vm  and store it in a nosql table or json metadata file, The idea is to keep the tag updated
+during the lifecycle of the vm. Using this tag we can always find out what assets are associated with a particular vm.
+To automate the decommission, we can create a bunch of scripts with each designated to release a particular asset 
+( like storage, monitor, ip etc) & call these using chain of jenkins jobs.
 
 An arbitrary tag might look like this,
 {
